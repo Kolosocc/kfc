@@ -18,26 +18,26 @@ export const CartButton: React.FC<Props> = ({ className }) => {
   //   state.loading,
   // ])
 
-  const [totalAmount, items, loading] = [10, [1, 2, 3], false]
+  const [totalAmount, items, loading] = [320, [1, 2, 3], false]
 
   return (
     <div>
       <Button
         loading={loading}
         className={cn(
-          'group relative h-12 w-[120px]',
-          { 'w-[120px]': loading },
+          'w-30 group relative h-12',
+          { 'w-30': loading },
           className
         )}
       >
-        <b>{totalAmount} ₽</b>
+        <b className="text-base">{totalAmount} ₽</b>
         <span className="mx-3 h-full w-[1px] bg-white/30" />
         <div className="flex items-center gap-1 transition duration-300 group-hover:opacity-0">
-          <ShoppingCart size={16} className="relative" strokeWidth={2} />
-          <b>{items.length}</b>
+          <ShoppingCart size={18} className="relative" strokeWidth={2} />
+          <b className="text-base">{items.length}</b>
         </div>
         <ArrowRight
-          size={20}
+          size={22}
           className="absolute right-5 -translate-x-2 opacity-0 transition duration-300 group-hover:translate-x-0 group-hover:opacity-100"
         />
       </Button>

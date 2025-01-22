@@ -25,27 +25,29 @@ export const Header: React.FC<Props> = ({
 }) => {
   return (
     <header className={cn('', className)}>
-      <Container className="flex items-center justify-between py-8">
-        <div>
+      <Container className="flex items-center justify-between py-4">
+        <div className="flex gap-20">
           <a href="/" className="">
-            <Logo color="#000" size={40} />
+            <Logo color="#000" size={30} />
           </a>
+
+          <div className="flex space-x-6">
+            {menuItems.map((item, index) => (
+              <Link
+                key={index}
+                href={item.href}
+                className="text-xl text-gray-700 hover:text-gray-400"
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
         </div>
-
-        <ul className="flex space-x-6">
-          {menuItems.map((item, index) => (
-            <Link
-              key={index}
-              href={item.href}
-              className="text-lg hover:text-gray-400"
-            >
-              {item.name}
-            </Link>
-          ))}
-        </ul>
-
         {hasCart && <CartButton />}
       </Container>
+
+      {/* Разделительная линия */}
+      <div className="h-[1px] w-full rounded-lg bg-gray-200" />
     </header>
   )
 }

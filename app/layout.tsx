@@ -11,6 +11,9 @@ const nunito = Nunito({
 
 export const metadata: Metadata = {
   title: 'KFC | Главная',
+  icons: {
+    icon: '/favicon.ico',
+  },
 }
 
 export default function RootLayout({
@@ -20,12 +23,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      {/* <head>
-        <link data-rh="true" rel="icon" href="/logo.png" />
-      </head> */}
       <body className={nunito.className}>
-        <Header />
-        <main className="min-h-screen">{children}</main>
+        <main className="min-h-screen">
+          <Header />
+          {children}
+        </main>
       </body>
     </html>
   )
